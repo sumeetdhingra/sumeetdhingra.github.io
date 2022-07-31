@@ -1,10 +1,8 @@
 
-// set the dimensions and margins of the graph
 var margin = {top: 10, right: 30, bottom: 100, left: 60},
     width = 1800 - margin.left - margin.right,
     height = 600 - margin.top - margin.bottom;
 
-// append the svg object to the body of the page
 var svg = d3.select("#my_dataviz")
   .append("svg")
     .attr("width", width + margin.left + margin.right)
@@ -13,12 +11,8 @@ var svg = d3.select("#my_dataviz")
     .attr("transform",
           "translate(" + margin.left + "," + margin.top + ")");
 
-
-
-//Read the data
 d3.csv("data/bike_sold_india.csv", function(data) {
 
-  // Add X axis
   var x = d3.scaleLinear()
     .domain([0, 500000, 200000,1300000])
     .range([ 0, width*7/5, width*3/5, width ]);
@@ -34,7 +28,6 @@ d3.csv("data/bike_sold_india.csv", function(data) {
       .text("Price")
       .style("fill", "darkBlue");
 
-  // Add Y axis
   var y = d3.scaleLinear()
     .domain([0, 100])
     .range([ height, 0]);
@@ -50,7 +43,6 @@ d3.csv("data/bike_sold_india.csv", function(data) {
     .text("Fuel Economy (kmpl)")
     .style("fill", "darkBlue")
 
-  // Color scale: give me a specie name, I return a color
   var color = d3.scaleOrdinal()
     .domain(function(d){ return d.brand}  )
     .range(["LightSteelBlue","MediumOrchid","Fuchsia","IndianRed","GoldenRod","FireBrick","SlateBlue","OrangeRed","Teal","Indigo","Maroon","DarkMagenta","DarkOrchid","Peru","LightCoral","LightCyan","Plum","green","yellow","black"]);
@@ -70,7 +62,6 @@ d3.csv("data/bike_sold_india.csv", function(data) {
       .style("padding", "10px")
 
 
-  // mouseover the specie that is hovered
   var mouseover = function(d){
 
     brand = d.brand
@@ -82,21 +73,22 @@ d3.csv("data/bike_sold_india.csv", function(data) {
       .transition()
       .duration(10)
       .style("fill", "lighgrey")
+      .style("opacity", 0)
       .attr("r", 5)
 
     d3.selectAll("." + brand)
       .transition()
       .duration(10)
       .style("fill", color(brand))
-      .style("opacity", 0.7)
-      .attr("r", 10)
+      .style("opacity", 1)
+      .attr("r", 7)
   }
 
-  // mouseover the specie that is hovered
   var mouseout = function(){
     d3.selectAll(".dot")
       .transition()
       .duration(10)
+      .style("opacity", 0.7)
       .style("fill", "lighgrey")
       .attr("r", 5 )
 
@@ -116,7 +108,6 @@ d3.csv("data/bike_sold_india.csv", function(data) {
 
 
 
-  // Add dots
   svg.append('g')
     .selectAll("dot")
     .data(data)

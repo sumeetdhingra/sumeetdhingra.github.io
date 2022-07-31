@@ -1,9 +1,7 @@
-// set the dimensions and margins of the graph
 var margin = {top: 10, right: 30, bottom: 100, left: 60},
     width = 1800 - margin.left - margin.right,
     height = 600 - margin.top - margin.bottom;
 
-// append the svg object to the body of the page
 var svg = d3.select("#my_dataviz")
   .append("svg")
     .attr("width", width + margin.left + margin.right)
@@ -13,10 +11,7 @@ var svg = d3.select("#my_dataviz")
           "translate(" + margin.left + "," + margin.top + ")");
 
 
-//Read the data
 d3.csv("data/bike_sold_india_avg_data.csv", function(data) {
-
-  // Add X axis
   var x = d3.scaleLinear()
     .domain([0, 500000, 200000,1300000])
     .range([ 0, width*7/5, width*3/5, width ]);
@@ -30,7 +25,6 @@ d3.csv("data/bike_sold_india_avg_data.csv", function(data) {
     .text("Price Range")
     .style("fill", "darkBlue");
 
-  // Add Y axis
   var y = d3.scaleLinear()
     .domain([0, 100])
     .range([ height, 0]);
@@ -45,17 +39,14 @@ d3.csv("data/bike_sold_india_avg_data.csv", function(data) {
   .style("fill", "darkBlue");
 
 
-  // Add a scale for bubble size
   var z = d3.scaleLinear()
     .domain([0, 300])
     .range([ 10, 80]);
 
-  // Add a scale for bubble color
   var myColor = d3.scaleOrdinal()
     .domain(function(d){ return d.brand}  )
     .range(["#1f77b4","#ff7f0e","#2ca02c","#d62728","#9467bd","#8c564b","#e377c2","#7f7f7f","#bcbd22","#17becf"]);
 
-  // -1- Create a tooltip div that is hidden by default:
   var tooltip = d3.select("body")
       .append("div")
       .style("opacity", 0)
@@ -68,7 +59,6 @@ d3.csv("data/bike_sold_india_avg_data.csv", function(data) {
       .style("padding", "10px")
       .style("color", "black")
 
-  // -2- Create 3 functions to show / update (when mouse move but stay on same circle) / hide the tooltip
   var mouseover = function(d) {
     tooltip
       .transition()
@@ -92,7 +82,6 @@ d3.csv("data/bike_sold_india_avg_data.csv", function(data) {
       .style("opacity", 0)
   }
 
-  // Add dots
   svg.append('g')
     .selectAll("dot")
     .data(data)
@@ -111,6 +100,8 @@ d3.csv("data/bike_sold_india_avg_data.csv", function(data) {
 
   });
 
+
+
   const annotation = [
     {
       note: {
@@ -119,7 +110,7 @@ d3.csv("data/bike_sold_india_avg_data.csv", function(data) {
       },
       type: d3.annotationCalloutRect,
       subject: {
-        width: 350,
+        width: 380,
         height: 200
       },
       x: 150,
@@ -129,7 +120,6 @@ d3.csv("data/bike_sold_india_avg_data.csv", function(data) {
     }
   ]
 
-  // Add annotation to the chart
   const makeannotation = d3.annotation()
     .annotations(annotation)
   d3.select("svg")
