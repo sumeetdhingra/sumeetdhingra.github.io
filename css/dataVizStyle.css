@@ -1,0 +1,54 @@
+
+
+    body {
+        font: 10px "Helvetica Neue", Helvetica, Arial, sans-serif;
+        margin: 100px;
+    }
+
+    .axis text {
+      font-family: 'Open Sans', sans-serif;
+      font-size: 12pt;
+    }
+
+    .axis .label {
+      font-size: 18pt;
+    }
+
+    .axis path,
+    .axis line {
+        fill: none;
+        stroke: #000;
+        shape-rendering: crispEdges;
+    }
+
+    .x.axis path {
+        display: none;
+    }
+
+    .chart-line {
+        fill: none;
+        stroke: steelblue;
+        stroke-width: 1.5px;
+    }
+
+    .overlay {
+        fill: none;
+        pointer-events: all;
+    }
+
+    .focus circle {
+        fill: steelblue;
+    }
+
+    .focus text {
+        font-size: 14px;
+    }
+
+    .tooltip {
+        fill: white;
+        stroke: #000;
+    }
+
+    .tooltip-date, .tooltip-likes {
+        font-weight: bold;
+    }
