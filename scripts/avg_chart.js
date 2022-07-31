@@ -12,6 +12,7 @@ var svg = d3.select("#my_dataviz")
     .attr("transform",
           "translate(" + margin.left + "," + margin.top + ")");
 
+
 //Read the data
 d3.csv("data/bike_sold_india_avg_data.csv", function(data) {
 
@@ -109,3 +110,28 @@ d3.csv("data/bike_sold_india_avg_data.csv", function(data) {
     .on("mouseleave", mouseout )
 
   });
+
+  const annotation = [
+    {
+      note: {
+        title: "Popular Brands",
+        label: "Average fuel economy and price point of popular brands"
+      },
+      type: d3.annotationCalloutRect,
+      subject: {
+        width: 350,
+        height: 200
+      },
+      x: 150,
+      y: 130,
+      dy: 250,
+      dx: 200
+    }
+  ]
+
+  // Add annotation to the chart
+  const makeannotation = d3.annotation()
+    .annotations(annotation)
+  d3.select("svg")
+    .append("g")
+    .call(makeannotation);

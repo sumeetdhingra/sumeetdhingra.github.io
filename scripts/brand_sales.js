@@ -63,7 +63,9 @@ console.log(data[0]);
       .attr("x", function(d) { return x(d.key); })
       .attr("width", x.bandwidth())
       .attr("y", function(d) { return y(+d.value); })
+      .text("heel")
       .attr("height", function(d) { return height - y(+d.value); })
+      .text("heel")
       .on('mouseover', function (d, i) {
           tooltip
             .html(

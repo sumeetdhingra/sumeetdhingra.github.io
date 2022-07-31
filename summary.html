@@ -5,7 +5,47 @@
 <script src="https://d3js.org/d3.v4.min.js"></script>
 <body>
   <div style="align: center"><a href="index.html"><button>Home</button><a></div>
-  <h1>Summary</h1>
+    <h1>Overview</h1>
+  <p>
+    This is a narrative visualization created for the course CS-416 Data Visualization of University of Illinois Urbana-Champaign. The visualization shows the consumer’s preference in purchasing a motorcycle in India. This narrative visualization goes through a series of charts to understand the consumer preference and provides the viewer a change to interact with each chart.
+  </p>
+  <h1>Messaging</h1>
+  <p>
+    There are few questions which are answered in this visualization. What are the most popular motorcycle brands in India? what are the consumer demands? and why these brands are popular?
+  </p>
+  <p>
+    After referring to multiple charts in the visualization, the consumer demands become more obvious to the viewer. The brands that offer a reasonable price and offer great fuel economy and the most favorite among the consumers.
+  </p>
+  <h1>Narrative Structure</h1>
+  <p>
+    The interactive slide show structure is used for this narrative visualization. Where the user goes through three different slides and on each slide the user has given some scope of interactions.
+  </p>
+  <p>
+    Each slide answers a question and guides the user from one question to another and gives user a room for exploration. Visual consistency is ensured by maintaining uniform elements throughout, introducing a mixture of text and chart elements, and having meaningful colors.
+  </p>
+
+  <h1>Scenes</h1>
+  <p>
+    There are three scenes in the ordered in sequential manner. The first scene, answer the question around which motorcycle brand is most popular and it uses sales number to depict the popularity. The second scene, answer the question what the consumer’s preference is, the chart use fuel economy and price to provide the answer. The third scene, answer the question why some brands are most popular among consumers. A bubble chart provides the answer showing the average fuel economy and price of models under popular brands fall exactly in consumers preference.
+  </p>
+  <p>
+    The scenes are followed by using the same template in all slides and calling the D3 js file in each of the template. Each chart has its own page and are linked in the story through previous and next buttons. There is a scope given to start over the narrative visualization from any of charts using a startover button.
+  </p>
+  <p>
+    The choice of colors, text and overall theme is kept constant using the CSS and following a template style HTML structure.
+  </p>
+  <h1>Annotations</h1>
+  <p>
+    There are some annotations used in each of the chart. In the first chart an annotation on bar chart shows the exact number of sales. In the second chart, an annotation is used on mouseover and mousemove to show various details about the selected point in scatterplot. In third chart, the popular brands are shown through annotation.
+  </p>
+  <h1>Parameters</h1>
+  <p>
+    The visualization has some parameters which help the viewer better explore the data. In second scene the user can filter out the brand by hovering over an element of the brand.
+  </p>
+  <h1>Triggers</h1>
+  <p>
+    The triggers are implemented via events and callbacks, such as “mouseover”, “mouseout” and “mousmove”. When specific html elements experience these events, the callback function is invoked, and we can change the visualization with respect to the action indicated by the trigger.
+  </p>
   <h1>References</h1>
 
 

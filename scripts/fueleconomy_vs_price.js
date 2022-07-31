@@ -14,6 +14,7 @@ var svg = d3.select("#my_dataviz")
           "translate(" + margin.left + "," + margin.top + ")");
 
 
+
 //Read the data
 d3.csv("data/bike_sold_india.csv", function(data) {
 
